@@ -1,0 +1,1712 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/29/2021 1:01:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MCEN1441"
+  DTS:CreatorName="SITA\SibusisoH"
+  DTS:DTSID="{44EACC62-399B-4C03-BDF9-EA3BAE1B35FF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{E71E6BA5-20B6-4B1E-AB6D-C2AD9BF8A3B6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MCEN1441.efms_limpopo_asidi]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A2A4C895-DD2D-4C87-90DB-B3E6FCCC1642}"
+      DTS:ObjectName="MCEN1441.efms_limpopo_asidi">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MCEN1441;Initial Catalog=efms_limpopo_asidi;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MCEN1441.GP_NEIMS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A93F3498-5050-421D-9724-7C0B79F53B35}"
+      DTS:ObjectName="MCEN1441.GP_NEIMS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MCEN1441;Initial Catalog=GP_NEIMS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MCEN1441.GP_NEIMS 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AADA071E-B290-48BF-9118-3876493470B8}"
+      DTS:ObjectName="MCEN1441.GP_NEIMS 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MCEN1441;Initial Catalog=GP_NEIMS;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tx_SitePhotos to FileSystem"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{FC194417-F02D-4AC5-9016-529886F7FCA1}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tx_SitePhotos to FileSystem">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{D7927392-C9B9-4761-AA4D-1D7B61A32A2E}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\Export Column"
+                  componentClassID="Microsoft.Extractor"
+                  contactInfo="Export Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Reads data from a data flow and insert it into a file. For example, create image files based on a database column that contains photographs."
+                  name="Export Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\Export Column.Inputs[Export Column Input]"
+                      hasSideEffects="true"
+                      name="Export Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\Export Column.Inputs[Export Column Input].Columns[Path]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="228"
+                          cachedName="Path"
+                          errorOrTruncationOperation="File Open"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Path]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the ID of the input column that contains the file data."
+                              name="FileDataColumnID">#{Package\Tx_SitePhotos to FileSystem\Data Flow Task\Export Column.Inputs[Export Column Input].Columns[PhotoBytes]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether to write a byte-order marker (BOM) to the file."
+                              name="WriteBOM">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether to force truncation of an existing file."
+                              name="ForceTruncate">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether to append data to an existing file."
+                              name="AllowAppend">false</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\Export Column.Inputs[Export Column Input].Columns[PhotoBytes]"
+                          cachedDataType="image"
+                          cachedName="PhotoBytes"
+                          errorOrTruncationOperation="File Write"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PhotoBytes]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the ID of the input column that contains the file data."
+                              name="FileDataColumnID">#{Package\Tx_SitePhotos to FileSystem\Data Flow Task\0:invalid}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether to write a byte-order marker (BOM) to the file."
+                              name="WriteBOM">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether to force truncation of an existing file."
+                              name="ForceTruncate">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether to append data to an existing file."
+                              name="AllowAppend">true</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\Export Column.Outputs[Export Column Output]"
+                      exclusionGroup="1"
+                      name="Export Column Output"
+                      synchronousInputId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\Export Column.Inputs[Export Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\Export Column.Outputs[Export Column Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Export Column Error Output"
+                      synchronousInputId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\Export Column.Inputs[Export Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\Export Column.Outputs[Export Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\Export Column.Outputs[Export Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\Export Column.Outputs[Export Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\Export Column.Outputs[Export Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ProjectPhotos]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">declare @path varchar(100)= 'g:\images\'
+
+SELECT [PhotoBytes], @path+CONVERT(varchar(10),[SiteID]) + '_' + CONVERT(varchar(10),[SitePhotoID]) AS Path
+FROM [GP_NEIMS].[dbo].[Tx_SitePhotos]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[MCEN1441.GP_NEIMS]"
+                      connectionManagerRefId="Package.ConnectionManagers[MCEN1441.GP_NEIMS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Path]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Path]"
+                          length="228"
+                          lineageId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Path]"
+                          name="Path"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PhotoBytes]"
+                          dataType="image"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PhotoBytes]"
+                          lineageId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PhotoBytes]"
+                          name="PhotoBytes"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Path]"
+                          codePage="1252"
+                          dataType="str"
+                          length="121"
+                          name="Path" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PhotoBytes]"
+                          dataType="image"
+                          name="PhotoBytes" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PhotoBytes]"
+                          dataType="image"
+                          lineageId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PhotoBytes]"
+                          name="PhotoBytes" />
+                        <outputColumn
+                          refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Path]"
+                          codePage="1252"
+                          dataType="str"
+                          length="121"
+                          lineageId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Path]"
+                          name="Path" />
+                        <outputColumn
+                          refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Tx_SitePhotos to FileSystem\Data Flow Task.Paths[OLE DB Source Output]"
+                  endId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\Export Column.Inputs[Export Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tx_Sites to Property_v3"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{569B7B6B-D4B2-43BB-8172-D802442E7DAE}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tx_Sites to Property_v3">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Tx_Sites to Property_v3\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{E44F52BA-1800-46F4-89EF-F0E1FD49C1B9}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:MaxErrorCount="5"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="EFMS Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[afm].[property_v3_bak]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">true</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[MCEN1441.efms_limpopo_asidi]"
+                      connectionManagerRefId="Package.ConnectionManagers[MCEN1441.efms_limpopo_asidi]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].Columns[NationalEmisNumber]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="16"
+                          cachedName="NationalEmisNumber"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_EMISNo]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[NationalEmisNumber]" />
+                        <inputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].Columns[OfficialName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="OfficialName"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_SchoolName]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[OfficialName]" />
+                        <inputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].Columns[OtherName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="OtherName"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_OtherSchoolName]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[OtherName]" />
+                        <inputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].Columns[AssessmentDate]"
+                          cachedDataType="dbDate"
+                          cachedName="AssessmentDate"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_AssessmentDate]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[AssessmentDate]" />
+                        <inputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].Columns[SchoolTypeID]"
+                          cachedDataType="i4"
+                          cachedName="SchoolTypeID"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afrv3_school_type_ID]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[SchoolTypeID]" />
+                        <inputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].Columns[SchoolStatusID]"
+                          cachedDataType="i4"
+                          cachedName="SchoolStatusID"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afrv3_school_status_type_ID]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[SchoolStatusID]" />
+                        <inputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].Columns[SiteSizeInHectores]"
+                          cachedDataType="numeric"
+                          cachedName="SiteSizeInHectores"
+                          cachedPrecision="10"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_SiteArea]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[SiteSizeInHectores]" />
+                        <inputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].Columns[IsDoubleShiftSite]"
+                          cachedDataType="bool"
+                          cachedName="IsDoubleShiftSite"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_DoubleShiftSite]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[IsDoubleShiftSite]" />
+                        <inputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].Columns[HasFormalBoundaries]"
+                          cachedDataType="bool"
+                          cachedName="HasFormalBoundaries"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_IsFormalBoundariesSite]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[HasFormalBoundaries]" />
+                        <inputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].Columns[Longitude]"
+                          cachedDataType="numeric"
+                          cachedName="Longitude"
+                          cachedPrecision="12"
+                          cachedScale="8"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_GPS_Primary_East]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[Longitude]" />
+                        <inputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].Columns[Latitude]"
+                          cachedDataType="numeric"
+                          cachedName="Latitude"
+                          cachedPrecision="12"
+                          cachedScale="8"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_GPS_Primary_South]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[Latitude]" />
+                        <inputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].Columns[HighestGradeID]"
+                          cachedDataType="i4"
+                          cachedName="HighestGradeID"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_HighestGradeOffered_type_ID]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[HighestGradeID]" />
+                        <inputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].Columns[LowestGradeID]"
+                          cachedDataType="i4"
+                          cachedName="LowestGradeID"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_LowestGradeOffered_type_ID]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[LowestGradeID]" />
+                        <inputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].Columns[LandOwnershipTypeID]"
+                          cachedDataType="i4"
+                          cachedName="LandOwnershipTypeID"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Land_Ownership_Type_ID]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[LandOwnershipTypeID]" />
+                        <inputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].Columns[SiteOwnershipTypeID]"
+                          cachedDataType="i4"
+                          cachedName="SiteOwnershipTypeID"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectorID]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[SiteOwnershipTypeID]" />
+                        <inputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].Columns[MunicipalityID]"
+                          cachedDataType="i4"
+                          cachedName="MunicipalityID"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Local_Municipality_ID]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[MunicipalityID]" />
+                        <inputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].Columns[SiteID]"
+                          cachedDataType="i4"
+                          cachedName="SiteID"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[pr_id]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[SiteID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[pr_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="pr_id" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_EMISNo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="afr_EMISNo" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_SchoolName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="afr_SchoolName" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_OtherSchoolName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="afr_OtherSchoolName" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Ass_ID]"
+                          dataType="i4"
+                          name="afr_Ass_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_TimeEnd]"
+                          dataType="dbTimeStamp"
+                          name="afr_TimeEnd" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_TimeStart]"
+                          dataType="dbTimeStamp"
+                          name="afr_TimeStart" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_AssessmentDate]"
+                          dataType="dbTimeStamp"
+                          name="afr_AssessmentDate" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afrv3_school_type_ID]"
+                          dataType="ui1"
+                          name="afrv3_school_type_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afrv3_school_status_type_ID]"
+                          dataType="ui1"
+                          name="afrv3_school_status_type_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_SiteArea]"
+                          dataType="r8"
+                          name="afr_SiteArea" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_DoubleShiftSite]"
+                          dataType="bool"
+                          name="afr_DoubleShiftSite" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_IsFormalBoundariesSite]"
+                          dataType="bool"
+                          name="afr_IsFormalBoundariesSite" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_SchoolHead_Cell]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="afr_SchoolHead_Cell" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_SchoolHead_Initials]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="afr_SchoolHead_Initials" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_SchoolHead_Surname]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="afr_SchoolHead_Surname" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Email]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="afr_Email" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_FaxArea]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="afr_FaxArea" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_FaxNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="afr_FaxNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_PhoneArea]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="afr_PhoneArea" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_PhoneNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="afr_PhoneNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_PhysicalAddress1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="afr_PhysicalAddress1" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_PhysicalAddress2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="afr_PhysicalAddress2" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_PhysicalAddress3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="afr_PhysicalAddress3" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_PhysicalAddressCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="afr_PhysicalAddressCode" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_PostalAddress1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="afr_PostalAddress1" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_PostalAddress2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="afr_PostalAddress2" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_PostalAddressCode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="afr_PostalAddressCode" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_GPS_Primary_East]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="afr_GPS_Primary_East" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_GPS_Primary_South]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="afr_GPS_Primary_South" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_HighestGradeOffered_type_ID]"
+                          dataType="ui1"
+                          name="afr_HighestGradeOffered_type_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_LowestGradeOffered_type_ID]"
+                          dataType="ui1"
+                          name="afr_LowestGradeOffered_type_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Land_Ownership_Type_ID]"
+                          dataType="ui1"
+                          name="afr_Land_Ownership_Type_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_LandOwnerOther]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="afr_LandOwnerOther" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_IsAgreementSignedMECOwner]"
+                          dataType="bool"
+                          name="afr_IsAgreementSignedMECOwner" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_LandOwnerName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="afr_LandOwnerName" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_LandOwnerContactDetails]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="afr_LandOwnerContactDetails" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_LastAssessor]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="afr_LastAssessor" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Repair_Budget_Year]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="afr_Repair_Budget_Year" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Repair_Cost_Property]"
+                          dataType="r8"
+                          name="afr_Repair_Cost_Property" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Repair_Cost_School]"
+                          dataType="r8"
+                          name="afr_Repair_Cost_School" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_RepairandReplaceCosTimestamp]"
+                          dataType="dbTimeStamp"
+                          name="afr_RepairandReplaceCosTimestamp" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Replace_Cost_Property]"
+                          dataType="r8"
+                          name="afr_Replace_Cost_Property" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Replace_Cost_School]"
+                          dataType="r8"
+                          name="afr_Replace_Cost_School" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_NoGrRLearnersMale]"
+                          dataType="i4"
+                          name="afr_NoGrRLearnersMale" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_NoGrRLearnersFemale]"
+                          dataType="i4"
+                          name="afr_NoGrRLearnersFemale" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_NoAdultsEducatorsMale]"
+                          dataType="i4"
+                          name="afr_NoAdultsEducatorsMale" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_NoAdultsEducatorsFemale]"
+                          dataType="i4"
+                          name="afr_NoAdultsEducatorsFemale" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_IsPlatooningSchool]"
+                          dataType="bool"
+                          name="afr_IsPlatooningSchool" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_PlatooningSchoolEmisNo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="afr_PlatooningSchoolEmisNo" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_IsTenantSchool]"
+                          dataType="bool"
+                          name="afr_IsTenantSchool" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_TenantSchoolEmisNo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="afr_TenantSchoolEmisNo" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_IsHostSchool]"
+                          dataType="bool"
+                          name="afr_IsHostSchool" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_HostSchoolEmisNo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="afr_HostSchoolEmisNo" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_CatchmentAreas1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="afr_CatchmentAreas1" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_CatchmentAreas2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="afr_CatchmentAreas2" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_CatchmentAreas3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="afr_CatchmentAreas3" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_IsInternetConnectedTeachingLearning]"
+                          dataType="bool"
+                          name="afr_IsInternetConnectedTeachingLearning" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_IsInternetConnectedAdmin]"
+                          dataType="bool"
+                          name="afr_IsInternetConnectedAdmin" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Construction_Date]"
+                          dataType="dbTimeStamp"
+                          name="afr_Construction_Date" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectorID]"
+                          dataType="i4"
+                          name="SectorID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[MagesterialDistrict]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="MagesterialDistrict" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[EDO_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="EDO_Name" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[geoCensusSubID]"
+                          dataType="i4"
+                          name="geoCensusSubID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[geoDistrictMunicID]"
+                          dataType="i4"
+                          name="geoDistrictMunicID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[geoEducBoundryID]"
+                          dataType="i4"
+                          name="geoEducBoundryID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[geoLocalMunicID]"
+                          dataType="i4"
+                          name="geoLocalMunicID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[geoMunicipalWardID]"
+                          dataType="i4"
+                          name="geoMunicipalWardID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[geoProvinceID]"
+                          dataType="i4"
+                          name="geoProvinceID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsEstimatedGPS]"
+                          dataType="bool"
+                          name="IsEstimatedGPS" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[geoEducationClusterID]"
+                          dataType="i4"
+                          name="geoEducationClusterID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[geoMagisterialDistrictID]"
+                          dataType="i4"
+                          name="geoMagisterialDistrictID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubSector]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="SubSector" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[EducCircuit]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="EducCircuit" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Local_Municipality_ID]"
+                          dataType="i4"
+                          name="afr_Local_Municipality_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_last_modified]"
+                          dataType="dbTimeStamp"
+                          name="date_last_modified" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[BudgetProgrammeID]"
+                          dataType="i4"
+                          name="BudgetProgrammeID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[EducCluster]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="EducCluster" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_revision_created]"
+                          dataType="bool"
+                          name="afr_revision_created" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_MasterlistGPS_Primary_East]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="afr_MasterlistGPS_Primary_East" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_MasterlistGPS_Primary_South]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="afr_MasterlistGPS_Primary_South" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Doe_Circuit_ID]"
+                          dataType="i4"
+                          name="afr_Doe_Circuit_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_EDO_ID]"
+                          dataType="i4"
+                          name="afr_EDO_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[city_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="city_id" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="county_id" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[ctry_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="ctry_id" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_FCI]"
+                          dataType="r8"
+                          name="afr_FCI" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_FCI_SEI_Mean]"
+                          dataType="r8"
+                          name="afr_FCI_SEI_Mean" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                          codePage="1252"
+                          dataType="str"
+                          length="64"
+                          name="description" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[regn_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="regn_id" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[state_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4"
+                          name="state_id" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_IsIndependent]"
+                          dataType="bool"
+                          name="afr_IsIndependent" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_WebSite]"
+                          codePage="1252"
+                          dataType="str"
+                          length="550"
+                          name="afr_WebSite" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_NoGr1To12LearnersMale]"
+                          dataType="i4"
+                          name="afr_NoGr1To12LearnersMale" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_NoGr1To12LearnersFemale]"
+                          dataType="i4"
+                          name="afr_NoGr1To12LearnersFemale" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_PhoneArea_Alt]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="afr_PhoneArea_Alt" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_PhoneNumber_Alt]"
+                          codePage="1252"
+                          dataType="str"
+                          length="150"
+                          name="afr_PhoneNumber_Alt" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_CatchmentAreas4]"
+                          codePage="1252"
+                          dataType="str"
+                          length="500"
+                          name="afr_CatchmentAreas4" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_MasterlistQuintile]"
+                          dataType="i4"
+                          name="afr_MasterlistQuintile" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_usage_type_property_ID]"
+                          dataType="ui1"
+                          name="afr_usage_type_property_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_NoDisabledLearners]"
+                          dataType="i4"
+                          name="afr_NoDisabledLearners" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_NoHostelLearners]"
+                          dataType="i4"
+                          name="afr_NoHostelLearners" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_last_modified]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="user_last_modified" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="NEIMS Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [NationalEmisNumber] AS [SiteID]
+      ,[NationalEmisNumber]
+      ,[OfficialName]
+      ,[OtherName]
+	  ,[AssessmentDate]
+	  ,[SchoolTypeID] 
+	  ,[SchoolStatusID]
+      ,[SiteSizeInHectores]
+      ,[IsDoubleShiftSite]
+	  ,[HasFormalBoundaries]
+	  ,[Longitude]
+      ,[Latitude]
+      ,[HighestGradeID]
+      ,[LowestGradeID]
+      ,[LandOwnershipTypeID]
+	  ,[SiteOwnershipTypeID]
+	  ,[MunicipalityID]
+     FROM [dbo].[Tx_Sites]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[MCEN1441.GP_NEIMS 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[MCEN1441.GP_NEIMS 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[SiteID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[SiteID]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[SiteID]"
+                          name="SiteID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[NationalEmisNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[NationalEmisNumber]"
+                          length="16"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[NationalEmisNumber]"
+                          name="NationalEmisNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[OfficialName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[OfficialName]"
+                          length="100"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[OfficialName]"
+                          name="OfficialName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[OtherName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[OtherName]"
+                          length="255"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[OtherName]"
+                          name="OtherName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[AssessmentDate]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[AssessmentDate]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[AssessmentDate]"
+                          name="AssessmentDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[SchoolTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[SchoolTypeID]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[SchoolTypeID]"
+                          name="SchoolTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[SchoolStatusID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[SchoolStatusID]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[SchoolStatusID]"
+                          name="SchoolStatusID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[SiteSizeInHectores]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[SiteSizeInHectores]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[SiteSizeInHectores]"
+                          name="SiteSizeInHectores"
+                          precision="10"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[IsDoubleShiftSite]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[IsDoubleShiftSite]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[IsDoubleShiftSite]"
+                          name="IsDoubleShiftSite"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[HasFormalBoundaries]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[HasFormalBoundaries]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[HasFormalBoundaries]"
+                          name="HasFormalBoundaries"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[Longitude]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[Longitude]"
+                          name="Longitude"
+                          precision="12"
+                          scale="8"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[Latitude]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[Latitude]"
+                          name="Latitude"
+                          precision="12"
+                          scale="8"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[HighestGradeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[HighestGradeID]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[HighestGradeID]"
+                          name="HighestGradeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[LowestGradeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[LowestGradeID]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[LowestGradeID]"
+                          name="LowestGradeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[LandOwnershipTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[LandOwnershipTypeID]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[LandOwnershipTypeID]"
+                          name="LandOwnershipTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[SiteOwnershipTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[SiteOwnershipTypeID]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[SiteOwnershipTypeID]"
+                          name="SiteOwnershipTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[MunicipalityID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[MunicipalityID]"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].Columns[MunicipalityID]"
+                          name="MunicipalityID"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[SiteID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="SiteID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[NationalEmisNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="NationalEmisNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[OfficialName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="OfficialName" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[OtherName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="OtherName" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[AssessmentDate]"
+                          dataType="dbDate"
+                          name="AssessmentDate" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[SchoolTypeID]"
+                          dataType="i4"
+                          name="SchoolTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[SchoolStatusID]"
+                          dataType="i4"
+                          name="SchoolStatusID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[SiteSizeInHectores]"
+                          dataType="numeric"
+                          name="SiteSizeInHectores"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[IsDoubleShiftSite]"
+                          dataType="bool"
+                          name="IsDoubleShiftSite" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[HasFormalBoundaries]"
+                          dataType="bool"
+                          name="HasFormalBoundaries" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                          dataType="numeric"
+                          name="Longitude"
+                          precision="12"
+                          scale="8" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                          dataType="numeric"
+                          name="Latitude"
+                          precision="12"
+                          scale="8" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[HighestGradeID]"
+                          dataType="i4"
+                          name="HighestGradeID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[LowestGradeID]"
+                          dataType="i4"
+                          name="LowestGradeID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[LandOwnershipTypeID]"
+                          dataType="i4"
+                          name="LandOwnershipTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[SiteOwnershipTypeID]"
+                          dataType="i4"
+                          name="SiteOwnershipTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output].ExternalColumns[MunicipalityID]"
+                          dataType="i4"
+                          name="MunicipalityID" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[SiteID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[SiteID]"
+                          name="SiteID" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[NationalEmisNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[NationalEmisNumber]"
+                          name="NationalEmisNumber" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[OfficialName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[OfficialName]"
+                          name="OfficialName" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[OtherName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[OtherName]"
+                          name="OtherName" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[AssessmentDate]"
+                          dataType="dbDate"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[AssessmentDate]"
+                          name="AssessmentDate" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[SchoolTypeID]"
+                          dataType="i4"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[SchoolTypeID]"
+                          name="SchoolTypeID" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[SchoolStatusID]"
+                          dataType="i4"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[SchoolStatusID]"
+                          name="SchoolStatusID" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[SiteSizeInHectores]"
+                          dataType="numeric"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[SiteSizeInHectores]"
+                          name="SiteSizeInHectores"
+                          precision="10"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[IsDoubleShiftSite]"
+                          dataType="bool"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[IsDoubleShiftSite]"
+                          name="IsDoubleShiftSite" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[HasFormalBoundaries]"
+                          dataType="bool"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[HasFormalBoundaries]"
+                          name="HasFormalBoundaries" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[Longitude]"
+                          dataType="numeric"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[Longitude]"
+                          name="Longitude"
+                          precision="12"
+                          scale="8" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                          dataType="numeric"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                          name="Latitude"
+                          precision="12"
+                          scale="8" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[HighestGradeID]"
+                          dataType="i4"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[HighestGradeID]"
+                          name="HighestGradeID" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[LowestGradeID]"
+                          dataType="i4"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[LowestGradeID]"
+                          name="LowestGradeID" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[LandOwnershipTypeID]"
+                          dataType="i4"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[LandOwnershipTypeID]"
+                          name="LandOwnershipTypeID" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[SiteOwnershipTypeID]"
+                          dataType="i4"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[SiteOwnershipTypeID]"
+                          name="SiteOwnershipTypeID" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[MunicipalityID]"
+                          dataType="i4"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[MunicipalityID]"
+                          name="MunicipalityID" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Tx_Sites to Property_v3\Data Flow Task.Paths[OLE DB Source Output]"
+                  endId="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Tx_Sites to Property_v3\Data Flow Task"
+          TopLeft="52.633323962159,23.2666679959827" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="240.8,141.6"
+          Size="240.8,184.8"
+          Id="Package\Tx_Sites to Property_v3"
+          TopLeft="183.333326048321,100.5333341323" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Tx_SitePhotos to FileSystem\Data Flow Task"
+          TopLeft="46.1666422618772,23.8666679753198" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="259.2,142.4"
+          Size="259.2,185.6"
+          Id="Package\Tx_SitePhotos to FileSystem"
+          TopLeft="568.333310749797,97.9333341116376" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tx_Sites to Property_v3\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="147.2,41.6"
+          Id="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source"
+          TopLeft="349.166652792031,115.266667582724" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination"
+          TopLeft="339.999986489614,234.866668533219" />
+        <EdgeLayout
+          Id="Package\Tx_Sites to Property_v3\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="421.983319640823,156.866667582724">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78.000000950495"
+              Start="0,0"
+              End="0,70.500000950495">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.500000950495" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tx_Sites to Property_v3\Data Flow Task\EFMS Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tx_Sites to Property_v3\Data Flow Task\NEIMS Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Tx_SitePhotos to FileSystem\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source"
+          TopLeft="470,126" />
+        <NodeLayout
+          Size="147.2,41.6"
+          Id="Package\Tx_SitePhotos to FileSystem\Data Flow Task\Export Column"
+          TopLeft="485,236" />
+        <EdgeLayout
+          Id="Package\Tx_SitePhotos to FileSystem\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="546,167.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.6,68.4"
+              Start="0,0"
+              End="12.6,60.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.2"
+                    Point2="0,34.2"
+                    Point3="4,34.2" />
+                  <mssgle:LineSegment
+                    End="8.60000000000002,34.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.60000000000002,34.2"
+                    Point2="12.6,34.2"
+                    Point3="12.6,38.2" />
+                  <mssgle:LineSegment
+                    End="12.6,60.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tx_SitePhotos to FileSystem\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
