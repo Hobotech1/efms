@@ -11,8 +11,8 @@
   DTS:LocaleID="7177"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{426EBDD4-9AF8-4713-9447-EE72DFAE602C}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{5A73B3EE-2E80-4735-AD7F-A80096BE4CA7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -55,6 +55,1168 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\building"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{9F07FCDB-3CAD-4A80-8832-2E264B6F5B71}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="building">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\building\SiteBuildings to v3_building"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{99526DFE-802C-4263-B2AF-81327AF23E5D}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SiteBuildings to v3_building"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\building\SiteBuildings to v3_building\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[afm].[afr_v3_building]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[MCEN1441.efms_limpopo_asidi]"
+                      connectionManagerRefId="Package.ConnectionManagers[MCEN1441.efms_limpopo_asidi]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NationalEmisNumber]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="16"
+                          cachedName="NationalEmisNumber"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pr_id]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[NationalEmisNumber]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BuildingNumber]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="18"
+                          cachedName="BuildingNumber"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_BuildingNumber]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[BuildingNumber]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NumberOfFloors]"
+                          cachedDataType="ui1"
+                          cachedName="NumberOfFloors"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_NumberFloors]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[NumberOfFloors]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BuildingTypeID]"
+                          cachedDataType="i4"
+                          cachedName="BuildingTypeID"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Building_Type_ID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[BuildingTypeID]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Length]"
+                          cachedDataType="numeric"
+                          cachedName="Length"
+                          cachedPrecision="12"
+                          cachedScale="4"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Length]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[Length]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Width]"
+                          cachedDataType="numeric"
+                          cachedName="Width"
+                          cachedPrecision="12"
+                          cachedScale="4"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Width]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[Width]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NumberOfHoses]"
+                          cachedDataType="ui1"
+                          cachedName="NumberOfHoses"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_FireReels]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[NumberOfHoses]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WallTypeID]"
+                          cachedDataType="i4"
+                          cachedName="WallTypeID"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afrv3_wall_type_id]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WallTypeID]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WallMaintTypeID]"
+                          cachedDataType="i4"
+                          cachedName="WallMaintTypeID"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Wall_afrv3_service_maintenance_type_id]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WallMaintTypeID]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WallIsDamagedByStorm]"
+                          cachedDataType="bool"
+                          cachedName="WallIsDamagedByStorm"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WallHasStormDamage]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WallIsDamagedByStorm]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RoofTypeID]"
+                          cachedDataType="i4"
+                          cachedName="RoofTypeID"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afrv3_roof_type_id]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[RoofTypeID]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RoofMaintTypeID]"
+                          cachedDataType="i4"
+                          cachedName="RoofMaintTypeID"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Roof_afrv3_service_maintenance_type_id]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[RoofMaintTypeID]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RoofIsDamagedByStorm]"
+                          cachedDataType="bool"
+                          cachedName="RoofIsDamagedByStorm"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RoofHasStormDamage]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[RoofIsDamagedByStorm]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RainwaterFittingTypeID]"
+                          cachedDataType="i4"
+                          cachedName="RainwaterFittingTypeID"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afrv3_rainwater_fitting_type_id]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[RainwaterFittingTypeID]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MaterialTypeID]"
+                          cachedDataType="i4"
+                          cachedName="MaterialTypeID"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_rainwater_fitting_material_ID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaterialTypeID]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RainwaterfittingMaintTypeID]"
+                          cachedDataType="i4"
+                          cachedName="RainwaterfittingMaintTypeID"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RainwaterFitting_afrv3_service_maintenance_type_id]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[RainwaterfittingMaintTypeID]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RWFIsDamagedByStorm]"
+                          cachedDataType="bool"
+                          cachedName="RWFIsDamagedByStorm"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RainwaterFittingHasStormDamage]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[RWFIsDamagedByStorm]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WFIsDamagedByStorm]"
+                          cachedDataType="bool"
+                          cachedName="WFIsDamagedByStorm"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WindowHasStormDamage]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WFIsDamagedByStorm]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WindowFrameTypeID]"
+                          cachedDataType="i4"
+                          cachedName="WindowFrameTypeID"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afrv3_window_frame_type_id]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WindowFrameTypeID]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WindowFrameMaintTypeID]"
+                          cachedDataType="i4"
+                          cachedName="WindowFrameMaintTypeID"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Window_frame_afrv3_service_maintenance_type_id]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WindowFrameMaintTypeID]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WindowPaneTypeID]"
+                          cachedDataType="i4"
+                          cachedName="WindowPaneTypeID"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afrv3_window_pane_type_id]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WindowPaneTypeID]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WindowPaneMaintTypeID]"
+                          cachedDataType="i4"
+                          cachedName="WindowPaneMaintTypeID"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Window_pane_afrv3_service_maintenance_type_id]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WindowPaneMaintTypeID]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FirehoseMaintTypeID]"
+                          cachedDataType="i4"
+                          cachedName="FirehoseMaintTypeID"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FireReels_afrv3_service_maintenance_type_id]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirehoseMaintTypeID]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DoorTypeID]"
+                          cachedDataType="i4"
+                          cachedName="DoorTypeID"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afrv3_door_pane_type_id]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[DoorTypeID]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DoorMaintTypeID]"
+                          cachedDataType="i4"
+                          cachedName="DoorMaintTypeID"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DoorPane_afrv3_service_maintenance_type_id]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[DoorMaintTypeID]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DoorFrameTypeID]"
+                          cachedDataType="i4"
+                          cachedName="DoorFrameTypeID"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afrv3_door_frame_type_id]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[DoorFrameTypeID]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DoorFrameMaintTypeID]"
+                          cachedDataType="i4"
+                          cachedName="DoorFrameMaintTypeID"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DoorFrame_afrv3_service_maintenance_type_id]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[DoorFrameMaintTypeID]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DIsDamagedByStorm]"
+                          cachedDataType="bool"
+                          cachedName="DIsDamagedByStorm"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DoorHasStormDamage]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[DIsDamagedByStorm]" />
+                        <inputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NEIMS3BLID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="16"
+                          cachedName="NEIMS3BLID"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NEIMSII_bl_id]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[NEIMS3BLID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_BuildingNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          name="afr_BuildingNumber" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pr_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="pr_id" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_NumberFloors]"
+                          dataType="i4"
+                          name="afr_NumberFloors" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Building_Type_ID]"
+                          dataType="ui1"
+                          name="afr_Building_Type_ID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_FireReels]"
+                          dataType="i2"
+                          name="afr_FireReels" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Length]"
+                          dataType="r8"
+                          name="afr_Length" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_Width]"
+                          dataType="r8"
+                          name="afr_Width" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afrv3_wall_type_id]"
+                          dataType="ui1"
+                          name="afrv3_wall_type_id" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Wall_afrv3_service_maintenance_type_id]"
+                          dataType="ui1"
+                          name="Wall_afrv3_service_maintenance_type_id" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WallHasStormDamage]"
+                          dataType="bool"
+                          name="WallHasStormDamage" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afrv3_roof_type_id]"
+                          dataType="ui1"
+                          name="afrv3_roof_type_id" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Roof_afrv3_service_maintenance_type_id]"
+                          dataType="ui1"
+                          name="Roof_afrv3_service_maintenance_type_id" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RoofHasStormDamage]"
+                          dataType="bool"
+                          name="RoofHasStormDamage" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afrv3_rainwater_fitting_type_id]"
+                          dataType="ui1"
+                          name="afrv3_rainwater_fitting_type_id" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afr_rainwater_fitting_material_ID]"
+                          dataType="ui1"
+                          name="afr_rainwater_fitting_material_ID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RainwaterFitting_afrv3_service_maintenance_type_id]"
+                          dataType="ui1"
+                          name="RainwaterFitting_afrv3_service_maintenance_type_id" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RainwaterFittingHasStormDamage]"
+                          dataType="bool"
+                          name="RainwaterFittingHasStormDamage" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WindowHasStormDamage]"
+                          dataType="bool"
+                          name="WindowHasStormDamage" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DoorHasStormDamage]"
+                          dataType="bool"
+                          name="DoorHasStormDamage" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RainwaterFitting_afrv3_rainwater_fitting_type_material_id]"
+                          dataType="ui1"
+                          name="RainwaterFitting_afrv3_rainwater_fitting_type_material_id" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afrv3_window_frame_type_id]"
+                          dataType="ui1"
+                          name="afrv3_window_frame_type_id" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Window_frame_afrv3_service_maintenance_type_id]"
+                          dataType="ui1"
+                          name="Window_frame_afrv3_service_maintenance_type_id" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afrv3_window_pane_type_id]"
+                          dataType="ui1"
+                          name="afrv3_window_pane_type_id" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Window_pane_afrv3_service_maintenance_type_id]"
+                          dataType="ui1"
+                          name="Window_pane_afrv3_service_maintenance_type_id" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FireReels_afrv3_service_maintenance_type_id]"
+                          dataType="ui1"
+                          name="FireReels_afrv3_service_maintenance_type_id" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afrv3_door_frame_type_id]"
+                          dataType="ui1"
+                          name="afrv3_door_frame_type_id" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DoorFrame_afrv3_service_maintenance_type_id]"
+                          dataType="ui1"
+                          name="DoorFrame_afrv3_service_maintenance_type_id" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[afrv3_door_pane_type_id]"
+                          dataType="ui1"
+                          name="afrv3_door_pane_type_id" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DoorPane_afrv3_service_maintenance_type_id]"
+                          dataType="ui1"
+                          name="DoorPane_afrv3_service_maintenance_type_id" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NEIMSII_bl_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          name="NEIMSII_bl_id" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GPSLat]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="GPSLat" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GPSLong]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="GPSLong" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\building\SiteBuildings to v3_building\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT s.NationalEmisNumber, s.NationalEmisNumber as NEIMS3BLID,
+		 sb.BuildingNumber, sb.NumberOfFloors, sb.BuildingTypeID, sb.Length, sb.Width, 
+		 fh.NumberOfHoses, fh.[MaintenanceNeedTypeID] as FirehoseMaintTypeID,
+		 w.WallTypeID, w.MaintenanceNeedTypeID as WallMaintTypeID, w.IsDamagedByStorm as WallIsDamagedByStorm,
+		 r.[RoofTypeID], r.[MaintenanceNeedTypeID] as RoofMaintTypeID, r.[IsDamagedByStorm] as RoofIsDamagedByStorm,
+		 rwf.RainwaterFittingTypeID, rwf.MaterialTypeID, rwf.MaintenanceNeedTypeID as RainwaterfittingMaintTypeID, rwf.IsDamagedByStorm as RWFIsDamagedByStorm,
+		 wf.WindowFrameTypeID, wf.MaintenanceNeedTypeID as WindowFrameMaintTypeID, wf.IsDamagedByStorm as WFIsDamagedByStorm, 
+		 wp.WindowPaneTypeID, wp.MaintenanceNeedTypeID as WindowPaneMaintTypeID, wp.IsDamagedByStorm as WPIsDamagedByStorm,
+		 d.DoorTypeID, d.MaintenanceNeedTypeID as DoorMaintTypeID, d.IsDamagedByStorm as DIsDamagedByStorm,
+		 df.DoorFrameTypeID, df.MaintenanceNeedTypeID as DoorFrameMaintTypeID, df.IsDamagedByStorm as DFIsDamagedByStorm
+  FROM [dbo].[Sites] s
+  INNER JOIN [dbo].[SiteBuildings] sb ON s.SiteID = sb.SiteID
+  LEFT OUTER JOIN [dbo].[SiteBuildingFireHoses] fh ON sb.SiteBuildingID = fh.SiteBuildingID
+  LEFT OUTER JOIN [dbo].[SiteBuildingWalls] w ON sb.SiteBuildingID = w.SiteBuildingID
+  LEFT OUTER JOIN [dbo].[SiteBuildingRoofs] r ON sb.SiteBuildingID = r.SiteBuildingID
+  LEFT OUTER JOIN [dbo].[SiteBuildingRainwaterFittings] rwf ON sb.SiteBuildingID = rwf.SiteBuildingID
+  LEFT OUTER JOIN [dbo].[SiteBuildingWindowFrames] wf ON sb.SiteBuildingID = wf.SiteBuildingID
+  LEFT OUTER JOIN [dbo].[SiteBuildingWindowPanes] wp ON sb.SiteBuildingID = wp.SiteBuildingID
+  LEFT OUTER JOIN [dbo].[SiteBuildingDoors] d ON sb.SiteBuildingID = d.SiteBuildingID
+  LEFT OUTER JOIN [dbo].[SiteBuildingDoorFrames] df ON sb.SiteBuildingID = df.SiteBuildingID
+  WHERE exists (SELECT 1 FROM [efms_limpopo_asidi].[afm].[property_v3] p WHERE p.[pr_id] = s.NationalEmisNumber)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[MCEN1441.GP_NEIMS 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[MCEN1441.GP_NEIMS 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[NationalEmisNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NationalEmisNumber]"
+                          length="16"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[NationalEmisNumber]"
+                          name="NationalEmisNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[NEIMS3BLID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NEIMS3BLID]"
+                          length="16"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[NEIMS3BLID]"
+                          name="NEIMS3BLID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[BuildingNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BuildingNumber]"
+                          length="18"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[BuildingNumber]"
+                          name="BuildingNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[NumberOfFloors]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NumberOfFloors]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[NumberOfFloors]"
+                          name="NumberOfFloors"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[BuildingTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BuildingTypeID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[BuildingTypeID]"
+                          name="BuildingTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[Length]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Length]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[Length]"
+                          name="Length"
+                          precision="12"
+                          scale="4"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[Width]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Width]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[Width]"
+                          name="Width"
+                          precision="12"
+                          scale="4"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[NumberOfHoses]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NumberOfHoses]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[NumberOfHoses]"
+                          name="NumberOfHoses"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirehoseMaintTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirehoseMaintTypeID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirehoseMaintTypeID]"
+                          name="FirehoseMaintTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WallTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WallTypeID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WallTypeID]"
+                          name="WallTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WallMaintTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WallMaintTypeID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WallMaintTypeID]"
+                          name="WallMaintTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WallIsDamagedByStorm]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WallIsDamagedByStorm]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WallIsDamagedByStorm]"
+                          name="WallIsDamagedByStorm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[RoofTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RoofTypeID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[RoofTypeID]"
+                          name="RoofTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[RoofMaintTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RoofMaintTypeID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[RoofMaintTypeID]"
+                          name="RoofMaintTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[RoofIsDamagedByStorm]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RoofIsDamagedByStorm]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[RoofIsDamagedByStorm]"
+                          name="RoofIsDamagedByStorm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[RainwaterFittingTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RainwaterFittingTypeID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[RainwaterFittingTypeID]"
+                          name="RainwaterFittingTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaterialTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaterialTypeID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaterialTypeID]"
+                          name="MaterialTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[RainwaterfittingMaintTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RainwaterfittingMaintTypeID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[RainwaterfittingMaintTypeID]"
+                          name="RainwaterfittingMaintTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[RWFIsDamagedByStorm]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RWFIsDamagedByStorm]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[RWFIsDamagedByStorm]"
+                          name="RWFIsDamagedByStorm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WindowFrameTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WindowFrameTypeID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WindowFrameTypeID]"
+                          name="WindowFrameTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WindowFrameMaintTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WindowFrameMaintTypeID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WindowFrameMaintTypeID]"
+                          name="WindowFrameMaintTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WFIsDamagedByStorm]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WFIsDamagedByStorm]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WFIsDamagedByStorm]"
+                          name="WFIsDamagedByStorm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WindowPaneTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WindowPaneTypeID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WindowPaneTypeID]"
+                          name="WindowPaneTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WindowPaneMaintTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WindowPaneMaintTypeID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WindowPaneMaintTypeID]"
+                          name="WindowPaneMaintTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WPIsDamagedByStorm]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WPIsDamagedByStorm]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[WPIsDamagedByStorm]"
+                          name="WPIsDamagedByStorm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[DoorTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DoorTypeID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[DoorTypeID]"
+                          name="DoorTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[DoorMaintTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DoorMaintTypeID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[DoorMaintTypeID]"
+                          name="DoorMaintTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[DIsDamagedByStorm]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DIsDamagedByStorm]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[DIsDamagedByStorm]"
+                          name="DIsDamagedByStorm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[DoorFrameTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DoorFrameTypeID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[DoorFrameTypeID]"
+                          name="DoorFrameTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[DoorFrameMaintTypeID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DoorFrameMaintTypeID]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[DoorFrameMaintTypeID]"
+                          name="DoorFrameMaintTypeID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[DFIsDamagedByStorm]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DFIsDamagedByStorm]"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].Columns[DFIsDamagedByStorm]"
+                          name="DFIsDamagedByStorm"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NationalEmisNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="NationalEmisNumber" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NEIMS3BLID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="NEIMS3BLID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BuildingNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          name="BuildingNumber" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NumberOfFloors]"
+                          dataType="ui1"
+                          name="NumberOfFloors" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BuildingTypeID]"
+                          dataType="i4"
+                          name="BuildingTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Length]"
+                          dataType="numeric"
+                          name="Length"
+                          precision="12"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Width]"
+                          dataType="numeric"
+                          name="Width"
+                          precision="12"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NumberOfHoses]"
+                          dataType="ui1"
+                          name="NumberOfHoses" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirehoseMaintTypeID]"
+                          dataType="i4"
+                          name="FirehoseMaintTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WallTypeID]"
+                          dataType="i4"
+                          name="WallTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WallMaintTypeID]"
+                          dataType="i4"
+                          name="WallMaintTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WallIsDamagedByStorm]"
+                          dataType="bool"
+                          name="WallIsDamagedByStorm" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RoofTypeID]"
+                          dataType="i4"
+                          name="RoofTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RoofMaintTypeID]"
+                          dataType="i4"
+                          name="RoofMaintTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RoofIsDamagedByStorm]"
+                          dataType="bool"
+                          name="RoofIsDamagedByStorm" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RainwaterFittingTypeID]"
+                          dataType="i4"
+                          name="RainwaterFittingTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaterialTypeID]"
+                          dataType="i4"
+                          name="MaterialTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RainwaterfittingMaintTypeID]"
+                          dataType="i4"
+                          name="RainwaterfittingMaintTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RWFIsDamagedByStorm]"
+                          dataType="bool"
+                          name="RWFIsDamagedByStorm" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WindowFrameTypeID]"
+                          dataType="i4"
+                          name="WindowFrameTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WindowFrameMaintTypeID]"
+                          dataType="i4"
+                          name="WindowFrameMaintTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WFIsDamagedByStorm]"
+                          dataType="bool"
+                          name="WFIsDamagedByStorm" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WindowPaneTypeID]"
+                          dataType="i4"
+                          name="WindowPaneTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WindowPaneMaintTypeID]"
+                          dataType="i4"
+                          name="WindowPaneMaintTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WPIsDamagedByStorm]"
+                          dataType="bool"
+                          name="WPIsDamagedByStorm" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DoorTypeID]"
+                          dataType="i4"
+                          name="DoorTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DoorMaintTypeID]"
+                          dataType="i4"
+                          name="DoorMaintTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DIsDamagedByStorm]"
+                          dataType="bool"
+                          name="DIsDamagedByStorm" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DoorFrameTypeID]"
+                          dataType="i4"
+                          name="DoorFrameTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DoorFrameMaintTypeID]"
+                          dataType="i4"
+                          name="DoorFrameMaintTypeID" />
+                        <externalMetadataColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DFIsDamagedByStorm]"
+                          dataType="bool"
+                          name="DFIsDamagedByStorm" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NationalEmisNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NationalEmisNumber]"
+                          name="NationalEmisNumber" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NEIMS3BLID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NEIMS3BLID]"
+                          name="NEIMS3BLID" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BuildingNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BuildingNumber]"
+                          name="BuildingNumber" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NumberOfFloors]"
+                          dataType="ui1"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NumberOfFloors]"
+                          name="NumberOfFloors" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BuildingTypeID]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BuildingTypeID]"
+                          name="BuildingTypeID" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Length]"
+                          dataType="numeric"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Length]"
+                          name="Length"
+                          precision="12"
+                          scale="4" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Width]"
+                          dataType="numeric"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Width]"
+                          name="Width"
+                          precision="12"
+                          scale="4" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NumberOfHoses]"
+                          dataType="ui1"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NumberOfHoses]"
+                          name="NumberOfHoses" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirehoseMaintTypeID]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirehoseMaintTypeID]"
+                          name="FirehoseMaintTypeID" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WallTypeID]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WallTypeID]"
+                          name="WallTypeID" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WallMaintTypeID]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WallMaintTypeID]"
+                          name="WallMaintTypeID" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WallIsDamagedByStorm]"
+                          dataType="bool"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WallIsDamagedByStorm]"
+                          name="WallIsDamagedByStorm" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RoofTypeID]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RoofTypeID]"
+                          name="RoofTypeID" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RoofMaintTypeID]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RoofMaintTypeID]"
+                          name="RoofMaintTypeID" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RoofIsDamagedByStorm]"
+                          dataType="bool"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RoofIsDamagedByStorm]"
+                          name="RoofIsDamagedByStorm" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RainwaterFittingTypeID]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RainwaterFittingTypeID]"
+                          name="RainwaterFittingTypeID" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaterialTypeID]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaterialTypeID]"
+                          name="MaterialTypeID" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RainwaterfittingMaintTypeID]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RainwaterfittingMaintTypeID]"
+                          name="RainwaterfittingMaintTypeID" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RWFIsDamagedByStorm]"
+                          dataType="bool"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RWFIsDamagedByStorm]"
+                          name="RWFIsDamagedByStorm" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WindowFrameTypeID]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WindowFrameTypeID]"
+                          name="WindowFrameTypeID" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WindowFrameMaintTypeID]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WindowFrameMaintTypeID]"
+                          name="WindowFrameMaintTypeID" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WFIsDamagedByStorm]"
+                          dataType="bool"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WFIsDamagedByStorm]"
+                          name="WFIsDamagedByStorm" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WindowPaneTypeID]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WindowPaneTypeID]"
+                          name="WindowPaneTypeID" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WindowPaneMaintTypeID]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WindowPaneMaintTypeID]"
+                          name="WindowPaneMaintTypeID" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WPIsDamagedByStorm]"
+                          dataType="bool"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WPIsDamagedByStorm]"
+                          name="WPIsDamagedByStorm" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DoorTypeID]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DoorTypeID]"
+                          name="DoorTypeID" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DoorMaintTypeID]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DoorMaintTypeID]"
+                          name="DoorMaintTypeID" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DIsDamagedByStorm]"
+                          dataType="bool"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DIsDamagedByStorm]"
+                          name="DIsDamagedByStorm" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DoorFrameTypeID]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DoorFrameTypeID]"
+                          name="DoorFrameTypeID" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DoorFrameMaintTypeID]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DoorFrameMaintTypeID]"
+                          name="DoorFrameMaintTypeID" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DFIsDamagedByStorm]"
+                          dataType="bool"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DFIsDamagedByStorm]"
+                          name="DFIsDamagedByStorm" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\building\SiteBuildings to v3_building.Paths[OLE DB Source Output]"
+                  endId="Package\building\SiteBuildings to v3_building\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\building\SiteBuildings to v3_building\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\main table"
       DTS:CreationName="STOCK:SEQUENCE"
@@ -3864,6 +5026,17 @@ FROM [dbo].[SitePhotos]</property>
           Size="366.4,462.4"
           Id="Package\supporting tables"
           TopLeft="555.833315220145,38.13333363639" />
+        <NodeLayout
+          Size="205.6,41.6"
+          Id="Package\building\SiteBuildings to v3_building"
+          TopLeft="43.2999975164732,57.8666694217258" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="277.6,165.6"
+          Size="277.6,208.8"
+          Id="Package\building"
+          TopLeft="15.8333327041732,245.266668615871" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -4250,6 +5423,77 @@ FROM [dbo].[SitePhotos]</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\supporting tables\SiteGeneralDev to v3_property-general\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\building\SiteBuildings to v3_building">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\building\SiteBuildings to v3_building\OLE DB Source"
+          TopLeft="314,116" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\building\SiteBuildings to v3_building\OLE DB Destination"
+          TopLeft="321,213" />
+        <EdgeLayout
+          Id="Package\building\SiteBuildings to v3_building.Paths[OLE DB Source Output]"
+          TopLeft="390,157.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.6,55.4"
+              Start="0,0"
+              End="16.6,47.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.7"
+                    Point2="0,27.7"
+                    Point3="4,27.7" />
+                  <mssgle:LineSegment
+                    End="12.6,27.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.6,27.7"
+                    Point2="16.6,27.7"
+                    Point3="16.6,31.7" />
+                  <mssgle:LineSegment
+                    End="16.6,47.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\building\SiteBuildings to v3_building\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\building\SiteBuildings to v3_building\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
