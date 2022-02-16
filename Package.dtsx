@@ -11,8 +11,8 @@
   DTS:LocaleID="7177"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="53"
-  DTS:VersionGUID="{B7CC4734-4A89-43FA-87CC-4A2709955E65}">
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{2D44F282-5EA7-4428-A6FF-4EA99FDB2B83}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -7379,6 +7379,14 @@ FROM [dbo].[SitePhotos]</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\sites, buildings and rooms\SiteBldngsRooms to afrv3_room\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
