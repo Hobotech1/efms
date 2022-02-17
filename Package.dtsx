@@ -11,8 +11,8 @@
   DTS:LocaleID="7177"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="55"
-  DTS:VersionGUID="{2D44F282-5EA7-4428-A6FF-4EA99FDB2B83}">
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{DCD1313B-5505-4BEE-AD5E-D4AE214797FF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -396,7 +396,7 @@ FROM [dbo].[SitePhotos]</property>
                     <property
                       dataType="System.Boolean"
                       description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepIdentity">false</property>
+                      name="FastLoadKeepIdentity">true</property>
                     <property
                       dataType="System.Boolean"
                       description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
@@ -756,6 +756,12 @@ FROM [dbo].[SitePhotos]</property>
                           cachedName="RoomNumber"
                           externalMetadataColumnId="Package\sites, buildings and rooms\SiteBldngsRooms to afrv3_room\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RoomNumber]"
                           lineageId="Package\sites, buildings and rooms\SiteBldngsRooms to afrv3_room\OLE DB Source.Outputs[OLE DB Source Output].Columns[RoomNumber]" />
+                        <inputColumn
+                          refId="Package\sites, buildings and rooms\SiteBldngsRooms to afrv3_room\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SiteBuildingRoomID]"
+                          cachedDataType="i4"
+                          cachedName="SiteBuildingRoomID"
+                          externalMetadataColumnId="Package\sites, buildings and rooms\SiteBldngsRooms to afrv3_room\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Room_ID]"
+                          lineageId="Package\sites, buildings and rooms\SiteBldngsRooms to afrv3_room\OLE DB Source.Outputs[OLE DB Source Output].Columns[SiteBuildingRoomID]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
