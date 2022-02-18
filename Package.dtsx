@@ -11,8 +11,8 @@
   DTS:LocaleID="7177"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="56"
-  DTS:VersionGUID="{DCD1313B-5505-4BEE-AD5E-D4AE214797FF}">
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{00E0128E-745E-41A4-9481-FCC6DA08544E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -209,10 +209,19 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">declare @path varchar(100)= 'c:\images\'
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">/*declare @path varchar(100)= 'c:\images\'
 
 SELECT [PhotoBytes], @path+CONVERT(varchar(10),[SiteID]) + '_' + CONVERT(varchar(10),[SitePhotoID]) AS Path
-FROM [dbo].[SitePhotos]</property>
+FROM [dbo].[SitePhotos]*/
+
+declare @path varchar(100)= 'g:\images\'
+SELECT
+--pt.Type, this is text not characters like P/S/A
+sp.[PhotoBytes], @path+CONVERT(varchar(10),s.NationalEmisNumber) + '_' + CONVERT(varchar(10),sp.DateLoaded) + '_' + CONVERT(varchar(10), sp.PhotoTypeID) + '.' + CONVERT(varchar(10), mt.Type) AS Path
+FROM [dbo].[Sites] s 
+INNER JOIN [dbo].[SitePhotos] sp ON s.SiteID = sp.SiteID
+INNER JOIN [dbo].[PhotoType] pt ON sp.[PhotoTypeID] = pt.[PhotoTypeID] 
+INNER JOIN [dbo].[MimeType] mt ON sp.MimeTypeID = mt.MimeTypeID</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -275,7 +284,7 @@ FROM [dbo].[SitePhotos]</property>
                           refId="Package\photos\SitePhotos to local harddrive\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Path]"
                           codePage="1252"
                           dataType="str"
-                          length="121"
+                          length="143"
                           name="Path" />
                         <externalMetadataColumn
                           refId="Package\photos\SitePhotos to local harddrive\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PhotoBytes]"
@@ -297,7 +306,7 @@ FROM [dbo].[SitePhotos]</property>
                           refId="Package\photos\SitePhotos to local harddrive\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Path]"
                           codePage="1252"
                           dataType="str"
-                          length="121"
+                          length="143"
                           lineageId="Package\photos\SitePhotos to local harddrive\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Path]"
                           name="Path" />
                         <outputColumn
@@ -6935,7 +6944,7 @@ FROM [dbo].[SitePhotos]</property>
     design-time-name="Package\photos\SitePhotos to local harddrive">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="152,41.6"
           Id="Package\photos\SitePhotos to local harddrive\OLE DB Source"
@@ -6975,9 +6984,7 @@ FROM [dbo].[SitePhotos]</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7000,7 +7007,7 @@ FROM [dbo].[SitePhotos]</property>
     design-time-name="Package\sites, buildings and rooms\Sites to Property_v3">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="147.2,41.6"
           Id="Package\sites, buildings and rooms\Sites to Property_v3\NEIMS Source"
@@ -7028,9 +7035,7 @@ FROM [dbo].[SitePhotos]</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
